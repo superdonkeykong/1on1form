@@ -23,9 +23,8 @@
 ////
 // 【google spreadsheet基本設定】
 // 1.google formの「回答」からスプレッドシートを作成してください。・・・A
-// 2.スプレッドシート左下「フォームの回答　1」を左クリックし、名前を変更。「1」を削除し「フォームの回答」にしてください
-// 3.シートを追加してください。9回戦の場合は9枚追加してください。名前は「round1」~「round9」です。
-// 4.「round1」~「round9」の内容は別途サンプルシートを作成しているのでそれを参照してください。
+// 2.シートを追加してください。9回戦の場合は9枚追加してください。名前は「round1」~「round9」です。
+// 3.「round1」~「round9」の内容は別途サンプルシートを作成しているのでそれを参照してください。
 
 
 // Aで作成したシートのURL「https://docs.google.com/spreadsheets/d/xxx/edit」のxxxを以下のxxxに入れてください
@@ -40,7 +39,7 @@ var spreadSheetID = 'xxx';
 var sheetName1st = 'round1';
 
 // 回答のシート名
-var answerSheetName = 'フォームの回答';
+var answerSheetName = 'フォームの回答 1';
 
 // 定員のある項目の名前
 var questionName1st = 'round1';
