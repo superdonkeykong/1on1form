@@ -879,6 +879,9 @@ function updateForm(){
       return;
     }
   });
+  
+ // 質問項目を増やす場合はここにaddquestionをコピペ
+ //一行目はすこし右に出っ張るので2行目に合わせてください。 
 }
 
 
