@@ -3,7 +3,7 @@
 
 // シートのURL「https://docs.google.com/spreadsheets/d/xxx/edit」のxxxを以下のxxxに入れてください
 
-var spreadSheetID = 'xxx';
+var spreadSheetID = '1RohOmX8knWlWbkztOm89lJcWM5_tV-0OthMdm9bFIAU';
 
 ////上記設定が完了したら、スクリプトエディタで「実行」をクリックしてください。質問に選択肢が追加されているはずです。
 ////基本設定は以上です。
@@ -41,12 +41,12 @@ function updateForm(){
   var sheetLastRow = sheet.getLastRow();
   if (sheetLastRow > 1) {
     // 候補と定員を取得
-    var candidate = sheet.getRange(2, 1, sheetLastRow - 1, 2).getValues();
+    var candidate = sheet.getRange(2, 1, sheetLastRow - 1).getValues();
   } else {
 
   }
 
-
+  var answerSheetLastRow = answerSheet.getLastRow();
 
   for (var il = 0; il < items.length; il++) {
 
@@ -60,7 +60,7 @@ function updateForm(){
     }
 
     // 回答のシートの2行目から下の値を配列で取得する
-    var answerSheetLastRow = answerSheet.getLastRow();
+
     if (answerSheetLastRow > 1) {
       var questionNames = answerSheet.getRange(1, 1, 1, answerSheet.getLastColumn()).getValues();
       var colCount = questionNames[0].indexOf(questionName);    
@@ -82,7 +82,7 @@ function updateForm(){
         candidate.forEach(function(nameAndCapacity){        
           if(nameAndCapacity[0] != ""){
             // 定員無制限かどうか。また、回答が一件もない場合もこっち
-            if (answerData == null || nameAndCapacity[1] == 0 || nameAndCapacity[1] == ""){
+            if (answerData == null){
               choices.push(listItemQuestion.createChoice(nameAndCapacity[0]));
             } else {
               // 定員がある場合は定員以上になっていないか確認
@@ -94,7 +94,7 @@ function updateForm(){
                 }
               }
               // まだキャパがあれば選択肢に追加
-              if (counter < nameAndCapacity[1]){
+              if (counter < 1){
                 choices.push(listItemQuestion.createChoice(nameAndCapacity[0]));
               }
             }
