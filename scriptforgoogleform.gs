@@ -17,7 +17,7 @@
 
 // Aで作成したシートのURL「https://docs.google.com/spreadsheets/d/xxx/edit」のxxxを以下のxxxに入れてください
 
-var spreadSheetID = '1RohOmX8knWlWbkztOm89lJcWM5_tV-0OthMdm9bFIAU';
+var spreadSheetID = 'xxx';
 
 ////上記設定が完了したら、スクリプトエディタで「実行」をクリックしてください。質問に選択肢が追加されているはずです。
 ////基本設定は以上です。
