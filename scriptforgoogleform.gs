@@ -22,7 +22,7 @@ var spreadSheetID = 'xxx';
 ////上記設定が完了したら、スクリプトエディタで「実行」をクリックしてください。質問に選択肢が追加されているはずです。
 ////基本設定は以上です。
 
-// ######1st##############################################################################
+// ####################################################################################
 // 回答のシート名
 var answerSheetName = 'フォームの回答 1';
 
@@ -49,10 +49,7 @@ function updateForm(){
   for (var il = 0; il < items.length; il++) {
 
     var questionName = items[il].getTitle();
-    ////
-    // 【スプレッドシートの情報を取得】
-    // 候補と定員を取得し、定員に満たない候補のみを取得します
-    ////
+
     if (questionName === "会社名"){
       break;
     }
@@ -82,16 +79,6 @@ function updateForm(){
       // 必要な部分だけ取得
       var answerData = answerSheet.getRange(2, colCount + 1, answerSheetLastRow - 1).getValues();    
     }
-
-
-    ////
-    // 【Googleフォームの選択肢の上書き】
-    //// 
-
-
-
-
-
     // 選択肢の作成、更新
     items.forEach(function(item){
       // 質問項目がquestionNameの項目を探す
@@ -135,15 +122,9 @@ function updateForm(){
         }
         return;
 
-
-
-
       }
     });
-
-
   }
-
 }
 
 
