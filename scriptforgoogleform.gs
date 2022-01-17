@@ -3,7 +3,7 @@
 
 // シートのURL「https://docs.google.com/spreadsheets/d/xxx/edit」のxxxを以下のxxxに入れてください
 
-var spreadSheetID = 'xxx';
+var spreadSheetID = '1RohOmX8knWlWbkztOm89lJcWM5_tV-0OthMdm9bFIAU';
 
 ////上記設定が完了したら、スクリプトエディタで「実行」をクリックしてください。質問に選択肢が追加されているはずです。
 ////基本設定は以上です。
@@ -64,10 +64,7 @@ function updateForm(){
   for (var il = 0; il < items.length; il++) {
 
     var questionName = items[il].getTitle();
-    ////
-    // 【スプレッドシートの情報を取得】
-    // 候補と定員を取得し、定員に満たない候補のみを取得します
-    ////
+
     if (questionName === "会社名"){
       break;
     }
@@ -82,23 +79,21 @@ function updateForm(){
         // 選択肢を入れる配列
         var choices = [];
 
-        // 候補日を一つ一つ見ていく
-        // nameAndCapacity[0]がクライアント、nameAndCapacity[1]がその定員
         candidate.forEach(function(nameAndCapacity){        
           if(nameAndCapacity[0] != ""){
-            // 定員無制限かどうか。また、回答が一件もない場合もこっち
+            
             if (flatanswerData == null){
               choices.push(listItemQuestion.createChoice(nameAndCapacity[0]));
             } else {
-              // 定員がある場合は定員以上になっていないか確認
+              
               var counter = 0;
-              // 何人分キャパが埋まっているかカウント
+              
               for(var i = 0; i < flatanswerData.length; i++){
                 if (nameAndCapacity[0] == flatanswerData[i]){
                   counter++;
                 }
               }
-              // まだキャパがあれば選択肢に追加
+              // 選択肢に追加
               if (counter < 1){
                 choices.push(listItemQuestion.createChoice(nameAndCapacity[0]));
               }
