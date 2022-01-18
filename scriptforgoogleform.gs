@@ -60,20 +60,20 @@ function convertTwoDimensionToOneDimension(twoDimensionalArray, targetIndex) {
   return oneDimensionalArray;
 }
 
-//var questionNames = answerSheet.getRange(1, 1, 1, answerSheet.getLastColumn()).getValues();
+var questionNames = answerSheet.getRange(1, 1, 1, answerSheet.getLastColumn()).getValues();
 
 function updateForm(){
   for (var il = 0; il < items.length; il++) {
 
     var questionName = items[il].getTitle();
-    //var colCount = questionNames[0].indexOf(questionName);
+    var colCount = questionNames[0].indexOf(questionName);
 
     if (questionName === "会社名"){
       break;
     }
 
     if (answerSheetLastRow > 1) {
-      var flatanswerData = convertTwoDimensionToOneDimension(answerData,il + 1)
+      var flatanswerData = convertTwoDimensionToOneDimension(answerData,colCount - 1)
     }
 
     items.forEach(function(item){
