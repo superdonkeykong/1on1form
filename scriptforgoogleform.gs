@@ -1,3 +1,6 @@
+
+
+
 // シートのURL「https://docs.google.com/spreadsheets/d/xxx/edit」のxxxを以下のxxxに入れてください
 
 var spreadSheetID = 'xxx';
@@ -45,8 +48,9 @@ if (sheetLastRow > 1) {
 
 var answerSheetLastRow = answerSheet.getLastRow();
 
-
-var answerData = answerSheet.getRange(2, 2, answerSheetLastRow, answerSheet.getLastColumn() - 2).getValues();  
+if (answerSheetLastRow > 1) {
+  var answerData = answerSheet.getRange(2, 2, answerSheetLastRow - 1, answerSheet.getLastColumn() - 2).getValues();  
+}
 
 function convertTwoDimensionToOneDimension(twoDimensionalArray, targetIndex) {
   oneDimensionalArray = []
@@ -68,8 +72,9 @@ function updateForm(){
       break;
     }
 
-    var flatanswerData = convertTwoDimensionToOneDimension(answerData,il + 1)
-
+    if (answerSheetLastRow > 1) {
+      var flatanswerData = convertTwoDimensionToOneDimension(answerData,il)
+    }
 
     items.forEach(function(item){
       // 質問項目がquestionNameの項目を探す
