@@ -73,7 +73,7 @@ function updateForm(){
     }
 
     if (answerSheetLastRow > 1) {
-      var flatanswerData = convertTwoDimensionToOneDimension(answerData,il)
+      var flatanswerData = convertTwoDimensionToOneDimension(answerData,il + 1)
     }
 
     items.forEach(function(item){
