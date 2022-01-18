@@ -46,7 +46,7 @@ if (sheetLastRow > 1) {
 var answerSheetLastRow = answerSheet.getLastRow();
 
 
-var answerData = answerSheet.getRange(2, 2, answerSheetLastRow , answerSheet.getLastColumn() - 1).getValues();  
+var answerData = answerSheet.getRange(2, 2, answerSheetLastRow - 1, answerSheet.getLastColumn() - 2).getValues();  
 
 function convertTwoDimensionToOneDimension(twoDimensionalArray, targetIndex) {
   oneDimensionalArray = []
@@ -56,17 +56,19 @@ function convertTwoDimensionToOneDimension(twoDimensionalArray, targetIndex) {
   return oneDimensionalArray;
 }
 
+var questionNames = answerSheet.getRange(1, 1, 1, answerSheet.getLastColumn()).getValues();
 
 function updateForm(){
   for (var il = 0; il < items.length; il++) {
 
     var questionName = items[il].getTitle();
+    var colCount = questionNames[0].indexOf(questionName);
 
     if (questionName === "会社名"){
       break;
     }
 
-    var flatanswerData = convertTwoDimensionToOneDimension(answerData,il + 1)
+    var flatanswerData = convertTwoDimensionToOneDimension(answerData,colCount + 1)
 
 
     items.forEach(function(item){
