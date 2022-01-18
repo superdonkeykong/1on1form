@@ -1,9 +1,6 @@
-
-
-
 // シートのURL「https://docs.google.com/spreadsheets/d/xxx/edit」のxxxを以下のxxxに入れてください
 
-var spreadSheetID = '1RohOmX8knWlWbkztOm89lJcWM5_tV-0OthMdm9bFIAU';
+var spreadSheetID = 'xxx';
 
 ////上記設定が完了したら、スクリプトエディタで「実行」をクリックしてください。質問に選択肢が追加されているはずです。
 ////基本設定は以上です。
@@ -49,7 +46,7 @@ if (sheetLastRow > 1) {
 var answerSheetLastRow = answerSheet.getLastRow();
 
 
-var answerData = answerSheet.getRange(2, 2, answerSheetLastRow - 1, answerSheet.getLastColumn() - 2).getValues();  
+var answerData = answerSheet.getRange(2, 2, answerSheetLastRow , answerSheet.getLastColumn() - 1).getValues();  
 
 function convertTwoDimensionToOneDimension(twoDimensionalArray, targetIndex) {
   oneDimensionalArray = []
@@ -69,7 +66,7 @@ function updateForm(){
       break;
     }
 
-    var flatanswerData = convertTwoDimensionToOneDimension(answerData,il)
+    var flatanswerData = convertTwoDimensionToOneDimension(answerData,il + 1)
 
 
     items.forEach(function(item){
